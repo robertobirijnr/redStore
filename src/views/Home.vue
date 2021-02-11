@@ -8,10 +8,12 @@
   </div>
   <featured-category/>
   <featured-products/>
+  <brands/>
   </div>
 </template>
 
 <script>
+import Brands from '../components/master/brands.vue'
 import FeaturedCategory from '../components/master/featured-category.vue'
 import FeaturedProducts from '../components/master/featured-products.vue'
 import HeroBanner from '../components/master/hero-banner.vue'
@@ -25,7 +27,8 @@ export default {
     HeroBanner,
      Navbar,
     FeaturedCategory,
-    FeaturedProducts
+    FeaturedProducts,
+    Brands
    }
 }
 
