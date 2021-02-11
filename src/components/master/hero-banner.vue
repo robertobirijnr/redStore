@@ -1,5 +1,5 @@
 <template>
-    <div class="banner">
+    <div class="main-row">
         <div class="banner-col">
             <h1>Give Your Workout <br> A New Style!</h1>
             <p>Success isn't always about greatness. it's about consistency.
@@ -20,13 +20,6 @@
 </script>
 
 <style  scoped>
-.banner{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
 .banner-col{
     flex-basis: 50%;
     min-width: 300px;
@@ -49,6 +42,11 @@
     padding: 8px 30px;
     margin: 30px 0;
     border-radius: 30px;
+    transition: background 0.5s;
+}
+
+.hero-btn:hover{
+    background: #563434;
 }
 
 

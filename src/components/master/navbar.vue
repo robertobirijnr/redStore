@@ -13,6 +13,7 @@
                     <li><router-link to="/" >Account</router-link></li>
                 </ul>
             </nav>
+            <img src="../../assets/images/cart.png" width="30px" height="30px" alt="">
         </div>
     </div>
 </template>
