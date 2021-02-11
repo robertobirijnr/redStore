@@ -55,4 +55,14 @@ a{
   padding-left:25px;
   padding-right: 25px;
 }
+
+@media only screen and (max-width:600px){
+ 
+ .main-row{
+   text-align: center;
+ }
+ .cat-3,.main-col-4{
+   flex-basis: 100%;
+ }
+}
 </style>
