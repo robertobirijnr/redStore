@@ -49,7 +49,10 @@ a{
   background: radial-gradient(#fff,#ffd6d6);
 }
 
-/* .header .banner{
-  margin-top: 70px;
-} */
+.small-container{
+  max-width: 1080px;
+  margin: auto;
+  padding-left:25px;
+  padding-right: 25px;
+}
 </style>

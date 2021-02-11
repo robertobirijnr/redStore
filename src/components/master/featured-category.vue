@@ -37,10 +37,4 @@
         width: 100%;
     }
 
-    .small-container{
-        max-width: 1080px;
-        margin: auto;
-        padding-left:25px;
-        padding-right: 25px;
-    }
 </style>
