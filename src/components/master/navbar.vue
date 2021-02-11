@@ -11,7 +11,7 @@
                 </label>
                 <ul>
                     <li><router-link to="/" >Home</router-link></li>
-                    <li><router-link to="/" >Products</router-link></li>
+                    <li><router-link to="/products" >Products</router-link></li>
                     <li><router-link to="/" >About</router-link></li>
                     <li><router-link to="/" >Contact</router-link></li>
                     <li><router-link to="/" >Account</router-link></li>
