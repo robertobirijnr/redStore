@@ -9,6 +9,7 @@
   <featured-category/>
   <featured-products/>
   <brands/>
+  <Footer/>
   </div>
 </template>
 
@@ -16,6 +17,7 @@
 import Brands from '../components/master/brands.vue'
 import FeaturedCategory from '../components/master/featured-category.vue'
 import FeaturedProducts from '../components/master/featured-products.vue'
+import Footer from '../components/master/footer.vue'
 import HeroBanner from '../components/master/hero-banner.vue'
 import Navbar from '../components/master/navbar.vue'
 // @ is an alias to /src
@@ -28,7 +30,8 @@ export default {
      Navbar,
     FeaturedCategory,
     FeaturedProducts,
-    Brands
+    Brands,
+    Footer
    }
 }
 
