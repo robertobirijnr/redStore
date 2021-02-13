@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
+const expressValidator = require('express-validator')
 const path = require('path')
 const dotenv = require('dotenv');
 
@@ -28,6 +29,7 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.json());
 app.use(cookieParser())
+app.use(expressValidator())
 
 
 

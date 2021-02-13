@@ -1,12 +1,17 @@
 const express = require('express')
-const { signup } = require('../controller/user')
+const { signup, signin } = require('../controller/user')
+const { userSignupValidator } = require('../middlewares/validator')
 const router = express.Router()
 
 
 
 router
     .route('/signup')
-    .post(signup)
+    .post(userSignupValidator, signup)
+
+router
+    .route('/signin')
+    .post(signin)    
 
 
 
