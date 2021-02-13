@@ -31,12 +31,12 @@ app.use(bodyParser.json());
 
 
 
-// app.use('/api/v1/user',require('./routes/v1/auth'))
+app.use('/api/v1/user',require('./routes/user'))
 
 
 
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT , () =>{
-  console.log('App is running on port: ' + PORT);
+  console.log(`App is running on port: ${PORT}`);
 });
