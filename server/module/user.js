@@ -53,7 +53,7 @@ userSchema.methods = {
         if(!password) return '';
 
         try {
-            return crypto.createHmac('salt', this.salt)
+            return crypto.createHmac('sha1', this.salt)
                             .update(password)
                             .digest('hex')
         } catch (error) {

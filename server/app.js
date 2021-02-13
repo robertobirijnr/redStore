@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const cookieParser = require('cookie-parser')
 const path = require('path')
 const dotenv = require('dotenv');
 
@@ -23,15 +24,15 @@ console.log('connection successful')
 
 const app = express();
 
-
+//middleware
 app.use(cors())
-
 app.use(bodyParser.json());
+app.use(cookieParser())
 
 
 
 
-app.use('/api/v1/user',require('./routes/user'))
+app.use('/api/v1',require('./routes/user'))
 
 
 

@@ -1,12 +1,12 @@
 const express = require('express')
-const { getUsers } = require('../controller/user')
+const { signup } = require('../controller/user')
 const router = express.Router()
 
 
 
 router
-    .route('/')
-    .get(getUsers)
+    .route('/signup')
+    .post(signup)
 
 
 
