@@ -34,7 +34,7 @@ app.use(expressValidator())
 
 
 
-app.use('/api/v1',require('./routes/user'))
+app.use('/api/v1',require('./routes/auth'))
 
 
 

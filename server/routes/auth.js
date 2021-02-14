@@ -1,5 +1,6 @@
 const express = require('express')
-const { signup, signin } = require('../controller/user')
+const { signup, signin, signout } = require('../controller/auth')
+const { protected } = require('../middlewares')
 const { userSignupValidator } = require('../middlewares/validator')
 const router = express.Router()
 
@@ -11,9 +12,15 @@ router
 
 router
     .route('/signin')
-    .post(signin)    
+    .post(signin)  
+    
+router
+    .route('/signout')
+    .get(signout)
 
-
+router.get('/hello',protected,(req,res)=>{
+    res.send('hello')
+})
 
 module.exports = router    
     

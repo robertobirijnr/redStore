@@ -47,8 +47,15 @@ userSchema.virtual('password')
     return this._password
 })
 
+
+
 // the crypto module to hash password
 userSchema.methods = {
+
+    authenticate: function(plainText){
+        return this.encryptPassword(plainText) === this.hashed_password;
+    },
+
     encryptPassword:function(password){
         if(!password) return '';
 
