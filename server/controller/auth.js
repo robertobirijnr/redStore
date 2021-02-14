@@ -57,6 +57,7 @@ exports.signout =(req,res)=>{
     })
 }
 
+
 exports.getUserProfile=(req,res,next,id)=>{
     User.findById(id).exec((err,user)=>{
         if(err || !user){

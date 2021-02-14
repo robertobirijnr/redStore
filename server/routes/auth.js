@@ -1,6 +1,6 @@
 const express = require('express')
 const { signup, signin, signout, getUserProfile } = require('../controller/auth')
-const { protected } = require('../middlewares')
+const { protected, isAuth } = require('../middlewares')
 const { userSignupValidator } = require('../middlewares/validator')
 const router = express.Router()
 
@@ -19,7 +19,7 @@ router
     .get(signout)
 
 
-router.get('/profile/:userId',protected,(req,res)=>{
+router.get('/profile/:userId',protected,isAuth, (req,res)=>{
     res.json({
         user: req.profile
     })
