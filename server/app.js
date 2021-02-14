@@ -36,6 +36,7 @@ app.use(expressValidator())
 
 app.use('/api/v1',require('./routes/auth'))
 app.use('/api/v1',require('./routes/category'))
+app.use('/api/v1',require('./routes/products'))
 
 
 
