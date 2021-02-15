@@ -5,6 +5,16 @@ const fs = require('fs')
 const { errorHandler } = require('../middlewares/errorHandler')
 
 
+//getting product image separately. 
+exports.getProductImage = (req,res,next) =>{
+    if(req.product.photo.data){
+        res.set('Content-Type', req.product.photo.contentType)
+        return res.send(req.product.photo.data)
+    }
+
+    next()
+}
+
 //  get all products base on arrivals and sells
 //  by arrival = /products?sortBy=createdAt&order=desc
 
@@ -14,7 +24,7 @@ exports.getAllProducts=(req,res)=>{
     let limit = req.query.limit ? parseInt(req.query.limit):6
 
     Product.find()
-            .select('-photo')
+            // .select('-photo')
             .populate('category')
             .sort([[sortBy,order]])
             .limit(limit)
@@ -25,8 +35,22 @@ exports.getAllProducts=(req,res)=>{
                     })
                 }
 
-                res.json(product)
+                res.json({
+                    "total products":product.length,
+                    product
+                })
             })
+}
+
+exports.getProductCategories= (req,res)=>{
+    Product.distinct('category',{},(err,categories)=>{
+        if(err){
+            return res.status(400).json({
+                error:"product not found"
+            })
+        }
+        res.json(categories)
+    })
 }
 
 
