@@ -6,7 +6,7 @@ const router = express.Router()
 
 
 router
-    .route('/product')
+    .route('/products')
     .get(getAllProducts)
 
 
