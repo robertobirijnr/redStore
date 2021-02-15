@@ -11,7 +11,7 @@ router
 
 
 router
-.route('/product/:userId')
+.route('/product/create/:userId')
 .post(protected,isAuth,isAdmin,createProduct)
 
 
