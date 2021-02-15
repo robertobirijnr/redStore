@@ -1,5 +1,5 @@
 const express = require('express')
-const { signup, signin, signout, getUserProfile } = require('../controller/auth')
+const { signup, signin, signout, getUserProfile, read, updateProfile } = require('../controller/auth')
 const { protected, isAuth } = require('../middlewares')
 const { userSignupValidator } = require('../middlewares/validator')
 const router = express.Router()
@@ -24,6 +24,11 @@ router.get('/profile/:userId',protected,isAuth, (req,res)=>{
         user: req.profile
     })
 })
+
+router
+    .route('/user/:userId')
+    .get(read)
+    .put(updateProfile)
 
 router.param('userId',getUserProfile)
 
