@@ -21,7 +21,7 @@ exports.createProduct =(req,res)=>{
         //check for all fields validate
         const {name, description,price,category,quantity,shipping} = fields
 
-        if(!name || !description || !price ||!category || !quantity || shipping){
+        if(!name || !description || !price ||!category || !quantity || !shipping){
             return res.status(400).json({
                 error:"All fields required"
             })
@@ -70,5 +70,32 @@ exports.productById =(req,res,next,id)=>{
 exports.getProductDetail =(req,res)=>{
     //we dont want to send photo due to size here!
     req.product.photo = undefined
-    return res.json(req.product);
+    let product = req.product
+    if(product){
+        return res.json(product);
+    }else{
+        return res.status(404).json({
+            error:"can not be found"
+        })
+    }
+    
+}
+
+exports.deleteProduct =(req,res)=>{
+    let product = req.product
+    product.remove((err,deletedProduct)=>{
+        if(err){
+            return res.status(400).json({
+                error:errorHandler(err)
+            })
+        }
+
+        res.json({
+            "message":"Product deleted successfully"
+        })
+    })
+}
+
+exports.updateProduct = (req,res)=>{
+    
 }
