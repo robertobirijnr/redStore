@@ -25,8 +25,27 @@ exports.getAllProducts=(req,res)=>{
                     })
                 }
 
-                res.send(product)
+                res.json(product)
             })
+}
+
+
+
+//Get related products base on product id and it category
+exports.getRelatedProducts =(req,res) =>{
+    let limit = req.query.limit ? parseInt(req.query.limit):6
+
+    Product.find({_id: {$ne: req.product}, category:req.product.category})
+    .limit(limit)
+    .populate('category','_id name')
+    .exec((err,data)=>{
+        if(err){
+            return res.status(400).json({
+                error:"Products not found"
+            })
+        }
+        res.json(data)
+    })
 }
 
 exports.createProduct =(req,res)=>{
