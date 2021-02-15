@@ -18,7 +18,7 @@ exports.createProduct =(req,res)=>{
             })
         }
 
-        //check for all fields
+        //check for all fields validate
         const {name, description,price,category,quantity,shipping} = fields
 
         if(!name || !description || !price ||!category || !quantity || shipping){
@@ -50,4 +50,25 @@ exports.createProduct =(req,res)=>{
             res.json({result})
         })
     })
+}
+
+
+//product byId
+exports.productById =(req,res,next,id)=>{
+    Product.findById(id).exec((err,product)=>{
+        if(err){
+            return res.status(400).json({
+                error:"product not found"
+            })
+        }
+        req.product = product;
+        next()
+    })
+}
+
+//get single product using Id
+exports.getProductDetail =(req,res)=>{
+    //we dont want to send photo due to size here!
+    req.product.photo = undefined
+    return res.json(req.product);
 }
